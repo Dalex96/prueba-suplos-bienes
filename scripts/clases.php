@@ -27,12 +27,11 @@ class Actions
 	}
 	public function delete_Data(){
 		include('../db/index.php');
-		$action = $mysqli->query("SELECT * FROM bienes");
-		if (!$action) {
-			echo "Error al listar los bienes</br>";
-		}else{
-			return $action;
-		}
+		$action = $mysqli->query("DELETE FROM bienes WHERE Id = '$this->Id'");
+        if(!$action)
+          return 0;
+        else
+          return 1;
 	}	
 
 
